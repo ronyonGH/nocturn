@@ -30,8 +30,8 @@ jobs:
         npm install vite @vitejs/plugin-react react react-dom --save
         npm install @capacitor/cli @capacitor/core @capacitor/android @capacitor/browser --save
         
-        # Create standard Vite config file
-        echo "import { defineConfig } from 'vite'; import react from '@vitejs/plugin-react'; export default defineConfig({ plugins: [react()] });" > vite.config.js
+        # Injected base: './' right here to fix the Android WebView asset paths!
+        echo "import { defineConfig } from 'vite'; import react from '@vitejs/plugin-react'; export default defineConfig({ base: './', plugins: [react()] });" > vite.config.js
         
         # Update index.html to read the JSX file correctly
         echo '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Nocturn</title></head><body><div id="root"></div><script type="module" src="/app.jsx"></script></body></html>' > index.html
