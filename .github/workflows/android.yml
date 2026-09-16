@@ -18,17 +18,16 @@ jobs:
       with:
         node-version: 22
 
-    - name: Set up JDK 17
+    - name: Set up JDK 21
       uses: actions/setup-java@v4
       with:
         distribution: 'zulu'
-        java-version: '17'
+        java-version: '21'
 
     - name: Auto-Configure Vite and React
       run: |
         npm init -y
         npm install vite @vitejs/plugin-react react react-dom --save
-        # Added @capacitor/browser here to resolve your app.jsx import!
         npm install @capacitor/cli @capacitor/core @capacitor/android @capacitor/browser --save
         
         # Create standard Vite config file
